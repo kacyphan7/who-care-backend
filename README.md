@@ -29,6 +29,14 @@ Check version for Python3 `python3 --version`
 ### Install Test:
 Database Testing Tools: `pip install pytest`
 
+### Install dotenv:
+`pip install python-dotenv`
+
+**Create .gitignore to hide .env file.**
+
+### Install Faker Data: 
+`pip install Faker`
+
 ### ICD API Authentication
 - Register on the ICD API site (https://icd.who.int/icdapi).
 - Click on the Register link and follow the instructions
