@@ -5,6 +5,7 @@ import requests
 from flask import Flask, request, jsonify
 from pymongo import MongoClient
 from models import user, search_icd_code, prescription, medication, medical_record, icd_code, appointment
+from faker import Faker
 
 # Load environment variables from .env file
 load_dotenv()
@@ -14,6 +15,7 @@ CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 
 app = Flask(__name__)
+fake = Faker()
 
 # Connect to MongoDB
 client = MongoClient("mongodb://localhost:5001")
