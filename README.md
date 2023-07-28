@@ -41,6 +41,36 @@ Database Testing Tools: `pip install pytest`
 - Disclaimer: tokens are valid for about 1 hour and after that one has to get a new one
 
 **Convert C# code sample using .NET to Python**
+
+**oauth.py**
+```
+import os
+from dotenv import load_dotenv
+import requests 
+from oauthlib.oauth2 import BackendApplicationClient
+from requests_oauthlib import OAuth2Session
+
+def get_access_token():
+    # Load environment variables from .env file
+    load_dotenv()
+
+    token_endpoint = "https://icdaccessmanagement.who.int/connect/token"
+    client_id = os.getenv("CLIENT_ID")
+    client_secret = os.getenv("CLIENT_SECRET")
+    scope = "icdapi_access"
+
+    oauth2_client = BackendApplicationClient(client_id=client_id)
+    oauth2_session = OAuth2Session(client=oauth2_client)
+    token = oauth2_session.fetch_token(
+        token_url=token_endpoint,
+        client_id=client_id,
+        client_secret=client_secret,
+        scope=scope
+    )
+    return token['access_token']  
+```
+
+**app.py**
 ```
 import os
 from oauth import get_access_token
@@ -73,7 +103,7 @@ def testPoint():
         return f"Request failed: {response.status_code}", 500  # return error message
 ```
 
-### Start Server in zsh Python Terminal 
+### Start Server in zsh Terminal 
 `python app.py`
 
 # References 
