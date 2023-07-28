@@ -1,5 +1,13 @@
 from flask import Flask, request, jsonify
 from pymongo import MongoClient
+from models import User
+from models import SearchIcdCode
+from models import Prescription
+from models import Medication 
+from models import MedicalRecord
+from models import IcdCode
+from models import Appointment
+
 
 app = Flask(__name__)
 
