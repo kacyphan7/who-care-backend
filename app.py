@@ -10,7 +10,7 @@ from faker import Faker
 # Load environment variables from .env file
 load_dotenv()
 
-# Access the secret session variables 
+# Access the secret session variables
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 
@@ -22,6 +22,8 @@ client = MongoClient("mongodb://localhost:5001")
 db = client["test"]
 
 # Define Routes and Handlers
+
+
 @app.route('/testPoint')
 def testPoint():
     # integrate code to access token and make API requests
@@ -41,17 +43,23 @@ def testPoint():
         content = response.json()
         return jsonify(content)  # return json response
     else:
-        return f"Request failed: {response.status_code}", 500  # return error message
+        # return error message
+        return f"Request failed: {response.status_code}", 500
 
 # Return a welcome message when accessing the root URL
+
+
 @app.route('/')
 def home():
     return "Welcome to World Health Organization Care App!"
 
 # Error handler for Bad Request (HTTP 400)
+
+
 @app.errorhandler(400)
 def handle_bad_request(error):
     return jsonify({"error": "Bad request"}), 400
+
 
 # run Flask App
 if __name__ == "__main__":

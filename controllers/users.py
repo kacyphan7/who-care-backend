@@ -25,20 +25,20 @@ def get_users():
 
 
 # POST route for creating a new user 
-@app.route('/users', methods=['POST'])
-def create_user():
-    first_name = fake.first_name()
-    last_name = fake.last_name()
-    email = fake.email()
-    dob = fake.date_of_birth()
+# @app.route('/users', methods=['POST'])
+# def create_user():
+#     first_name = fake.first_name()
+#     last_name = fake.last_name()
+#     email = fake.email()
+#     dob = fake.date_of_birth()
 
-    user = {
-        'first_name': first_name,
-        'last_name': last_name,
-        'email': email,
-        'dob': dob,
-    }
-    return jsonify(user), 201
+#     user = {
+#         'first_name': first_name,
+#         'last_name': last_name,
+#         'email': email,
+#         'dob': dob,
+#     }
+#     return jsonify(user), 201
 
 # PUT route for updating a user by ID 
 
