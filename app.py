@@ -14,12 +14,20 @@ load_dotenv()
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static", static_url_path="/public")
 fake = Faker()
 
 # Connect to MongoDB
-client = MongoClient("mongodb://localhost:5001")
-db = client["test"]
+client = MongoClient('localhost', 27017)
+db = client.flask_app
+
+# collections - users, prescriptions, medications, medical_records, icd_codes, appointments
+users = db['users']
+prescriptions = db['prescriptions']
+medications = db['medications']
+medical_records = db['medical_records']
+icd_codes = db['icd_codes']
+appointments = db['appointments']
 
 # Define Routes and Handlers
 
@@ -63,4 +71,4 @@ def handle_bad_request(error):
 
 # run Flask App
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    app.run()
