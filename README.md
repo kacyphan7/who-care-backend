@@ -3,7 +3,7 @@
 This is World Health Organization Care backend app using Python, Flask, Django, and Postman on the server side. 
 
 ### Home Route
-When open http://localhost:5001/ in browswer or fetch get route in Postman, you should be able to see this message, "Welcome to World Health Organization Care App!".
+When open http://127.0.0.1:5000/ in browser or fetch get route in Postman, you should be able to see this message, "Welcome to World Health Organization Care App!".
 
 # Installation 
 
@@ -112,7 +112,7 @@ def testPoint():
 ```
 
 ### Start Server in zsh Terminal 
-`python app.py`
+`flask run` or `python app.py` 
 
 # References 
 - ICD API (https://icd.who.int/icdapi)
